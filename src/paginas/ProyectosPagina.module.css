@@ -1,0 +1,25 @@
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--espacio-4);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: var(--espacio-5);
+  margin-bottom: var(--espacio-5);
+}
+
+.filaCampos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-4);
+}
+
+@media (max-width: 620px) {
+  .filaCampos {
+    grid-template-columns: 1fr;
+  }
+}

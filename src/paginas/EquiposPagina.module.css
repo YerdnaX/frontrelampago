@@ -1,0 +1,40 @@
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--espacio-4);
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  padding: var(--espacio-5);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida), border-color var(--transicion-rapida);
+}
+
+.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-media);
+  border-color: var(--color-primario);
+}
+
+.tarjeta h3 {
+  font-size: 1.05rem;
+}
+
+.tarjeta p {
+  color: var(--color-texto-suave);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: var(--espacio-5);
+  margin-bottom: var(--espacio-5);
+  max-width: 480px;
+}

@@ -1,0 +1,38 @@
+.grupo {
+  display: flex;
+  gap: var(--espacio-2);
+  flex-wrap: wrap;
+}
+
+.opcion {
+  padding: 9px 18px;
+  border-radius: var(--radio-pill);
+  border: 1.5px solid var(--color-borde);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.opcion:hover {
+  border-color: var(--color-primario);
+}
+
+.seleccionado {
+  color: #fff;
+  border-color: transparent;
+}
+
+.alta {
+  background: var(--color-peligro);
+}
+
+.media {
+  background: var(--color-alerta);
+}
+
+.baja {
+  background: var(--color-info);
+}

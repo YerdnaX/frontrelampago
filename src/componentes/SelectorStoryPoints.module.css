@@ -1,0 +1,30 @@
+.grupo {
+  display: flex;
+  gap: var(--espacio-2);
+  flex-wrap: wrap;
+}
+
+.opcion {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radio-md);
+  border: 1.5px solid var(--color-borde);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.opcion:hover {
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+.seleccionado {
+  background: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(91, 61, 240, 0.32);
+}

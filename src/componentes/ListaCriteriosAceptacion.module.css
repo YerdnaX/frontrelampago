@@ -1,0 +1,65 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.vacio {
+  color: var(--color-texto-tenue);
+  font-size: 0.86rem;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  padding: var(--espacio-2) var(--espacio-3);
+  background: var(--color-superficie-alterna);
+  border-radius: var(--radio-sm);
+}
+
+.marca {
+  color: var(--color-exito);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.texto {
+  flex: 1;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 4px;
+  font-size: 0.88rem;
+  color: var(--color-texto);
+  cursor: pointer;
+  border-radius: var(--radio-sm);
+}
+
+.texto:hover {
+  background: var(--color-superficie);
+}
+
+.item :global(.campo-entrada) {
+  flex: 1;
+}
+
+.formulario {
+  display: flex;
+  gap: var(--espacio-2);
+  flex-wrap: wrap;
+}
+
+.formulario :global(.campo-entrada) {
+  flex: 1;
+  min-width: 220px;
+}

@@ -1,0 +1,61 @@
+.volver {
+  display: inline-block;
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--espacio-3);
+}
+
+.volver:hover {
+  color: var(--color-primario);
+}
+
+.encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--espacio-4);
+}
+
+.goal {
+  margin-top: var(--espacio-2);
+  color: var(--color-texto-suave);
+  font-style: italic;
+  max-width: 620px;
+}
+
+.mensajeExito {
+  background: var(--color-exito-suave);
+  color: var(--color-exito);
+  padding: var(--espacio-2) var(--espacio-3);
+  border-radius: var(--radio-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--espacio-4);
+}
+
+.panelFormulario {
+  padding: var(--espacio-5);
+  margin-bottom: var(--espacio-5);
+  max-width: 640px;
+}
+
+.encabezadoPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacio-4);
+}
+
+.encabezadoPanel h2 {
+  font-size: 1.1rem;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}

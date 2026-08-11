@@ -1,0 +1,14 @@
+.alta {
+  background: var(--color-peligro-suave);
+  color: var(--color-peligro);
+}
+
+.media {
+  background: var(--color-alerta-suave);
+  color: var(--color-alerta);
+}
+
+.baja {
+  background: var(--color-info-suave);
+  color: var(--color-info);
+}

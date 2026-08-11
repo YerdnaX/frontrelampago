@@ -1,0 +1,297 @@
+/* ============================================================
+   Sistema visual — Relampago Scrum
+   Tokens de diseno reutilizados en toda la aplicacion.
+   ============================================================ */
+
+:root {
+  --color-fondo: #f5f6fb;
+  --color-superficie: #ffffff;
+  --color-superficie-alterna: #f0f1f8;
+  --color-borde: #e3e5f0;
+  --color-texto: #1c1f2e;
+  --color-texto-suave: #5b5f76;
+  --color-texto-tenue: #8b8fa3;
+
+  --color-primario: #5b3df0;
+  --color-primario-fuerte: #4527d6;
+  --color-primario-suave: #efeaff;
+  --color-acento: #ff8a3d;
+  --color-acento-suave: #fff1e6;
+
+  --color-exito: #12946b;
+  --color-exito-suave: #e2f8f0;
+  --color-alerta: #b8860b;
+  --color-alerta-suave: #fff6df;
+  --color-peligro: #d63a52;
+  --color-peligro-suave: #fde9ec;
+  --color-info: #2563a8;
+  --color-info-suave: #e6f1fc;
+
+  --sombra-suave: 0 1px 2px rgba(28, 31, 46, 0.06), 0 1px 1px rgba(28, 31, 46, 0.04);
+  --sombra-media: 0 8px 24px rgba(28, 31, 46, 0.08), 0 2px 6px rgba(28, 31, 46, 0.05);
+  --sombra-alta: 0 20px 48px rgba(28, 31, 46, 0.16), 0 6px 16px rgba(28, 31, 46, 0.08);
+
+  --radio-sm: 8px;
+  --radio-md: 14px;
+  --radio-lg: 20px;
+  --radio-pill: 999px;
+
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-5: 24px;
+  --espacio-6: 32px;
+  --espacio-7: 48px;
+
+  --fuente-base: 'Segoe UI', -apple-system, BlinkMacSystemFont, Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --ancho-sidebar: 250px;
+  --transicion-rapida: 150ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-base);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 2px;
+  border-radius: var(--radio-sm);
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  padding: 10px 18px;
+  border-radius: var(--radio-md);
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida), background var(--transicion-rapida);
+  white-space: nowrap;
+}
+
+.boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.boton-primario {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-primario-fuerte));
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(91, 61, 240, 0.28);
+}
+
+.boton-primario:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(91, 61, 240, 0.34);
+}
+
+.boton-secundario {
+  background: var(--color-superficie);
+  border-color: var(--color-borde);
+  color: var(--color-texto);
+}
+
+.boton-secundario:hover:not(:disabled) {
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+.boton-fantasma {
+  background: transparent;
+  color: var(--color-texto-suave);
+}
+
+.boton-fantasma:hover:not(:disabled) {
+  background: var(--color-superficie-alterna);
+  color: var(--color-texto);
+}
+
+.boton-peligro {
+  background: var(--color-peligro-suave);
+  color: var(--color-peligro);
+}
+
+.boton-peligro:hover:not(:disabled) {
+  background: #f9d3d9;
+}
+
+.boton-pequeno {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: var(--radio-sm);
+}
+
+.boton-icono {
+  padding: 8px;
+  border-radius: var(--radio-sm);
+  background: transparent;
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto-suave);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-icono:hover:not(:disabled) {
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+/* ---------- Formularios ---------- */
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.campo-etiqueta {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.campo-entrada,
+.campo-textarea,
+.campo-select {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: var(--radio-sm);
+  border: 1.5px solid var(--color-borde);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font-size: 0.92rem;
+  font-family: inherit;
+  transition: border-color var(--transicion-rapida), box-shadow var(--transicion-rapida);
+}
+
+.campo-textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.campo-entrada:focus,
+.campo-textarea:focus,
+.campo-select:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px var(--color-primario-suave);
+  outline: none;
+}
+
+.campo-error {
+  font-size: 0.78rem;
+  color: var(--color-peligro);
+  font-weight: 500;
+}
+
+/* ---------- Tarjetas ---------- */
+
+.tarjeta {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-suave);
+}
+
+/* ---------- Insignias / Badges ---------- */
+
+.insignia {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: var(--radio-pill);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.insignia-punto {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---------- Utilidades de layout ---------- */
+
+.contenedor-pagina {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: var(--espacio-6) var(--espacio-5) var(--espacio-7);
+}
+
+.pila {
+  display: flex;
+  flex-direction: column;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+}
+
+.separado {
+  justify-content: space-between;
+}
+
+.envolver {
+  flex-wrap: wrap;
+}
+
+/* ---------- Scrollbar sutil ---------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d3d5e4;
+  border-radius: var(--radio-pill);
+  border: 2px solid var(--color-fondo);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -1,0 +1,122 @@
+.pantalla {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.panelVisual {
+  background: radial-gradient(circle at 20% 20%, #3d2c8f, #17102e 65%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--espacio-4);
+  padding: var(--espacio-7);
+  position: relative;
+  overflow: hidden;
+}
+
+.panelVisual::after {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  right: -160px;
+  bottom: -160px;
+  background: radial-gradient(circle, rgba(255, 138, 61, 0.35), transparent 70%);
+}
+
+.rayo {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 18px rgba(255, 175, 90, 0.8));
+}
+
+.panelVisual h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  max-width: 460px;
+}
+
+.panelVisual p {
+  max-width: 420px;
+  color: #cfc9ec;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.panelFormulario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio-5);
+  background: var(--color-fondo);
+}
+
+.tarjetaFormulario {
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-superficie);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-media);
+  padding: var(--espacio-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.tarjetaFormulario h2 {
+  font-size: 1.4rem;
+}
+
+.subtitulo {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+  margin-top: -8px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.mensajeError {
+  background: var(--color-peligro-suave);
+  color: var(--color-peligro);
+  padding: var(--espacio-2) var(--espacio-3);
+  border-radius: var(--radio-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.credencialesDemo {
+  margin-top: var(--espacio-2);
+  padding: var(--espacio-3);
+  background: var(--color-superficie-alterna);
+  border-radius: var(--radio-md);
+  font-size: 0.78rem;
+  color: var(--color-texto-suave);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.credencialesDemo code {
+  font-weight: 700;
+  color: var(--color-texto);
+}
+
+@media (max-width: 860px) {
+  .pantalla {
+    grid-template-columns: 1fr;
+  }
+
+  .panelVisual {
+    padding: var(--espacio-6) var(--espacio-5);
+  }
+
+  .panelVisual h1 {
+    font-size: 1.8rem;
+  }
+}
