@@ -1,0 +1,55 @@
+.fila {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-3) var(--espacio-4);
+  border: 1.5px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  background: var(--color-superficie);
+  cursor: pointer;
+  transition: border-color var(--transicion-rapida), background var(--transicion-rapida);
+}
+
+.fila:hover {
+  border-color: var(--color-primario);
+}
+
+.seleccionada {
+  border-color: var(--color-primario);
+  background: var(--color-primario-suave);
+}
+
+.fila input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primario);
+  flex-shrink: 0;
+}
+
+.cuerpo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titulo {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-texto);
+}
+
+.narrativa {
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .fila {
+    flex-wrap: wrap;
+  }
+}

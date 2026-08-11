@@ -1,0 +1,34 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding-bottom: var(--espacio-7);
+}
+
+.volver {
+  display: inline-block;
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.volver:hover {
+  color: var(--color-primario);
+}
+
+.encabezado {
+  margin-top: var(--espacio-2);
+}
+
+.ayuda {
+  color: var(--color-texto-suave);
+  margin-top: var(--espacio-1);
+  max-width: 640px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}

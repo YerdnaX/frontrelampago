@@ -1,0 +1,38 @@
+.barra {
+  position: sticky;
+  bottom: var(--espacio-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+  padding: var(--espacio-4) var(--espacio-5);
+  background: var(--color-superficie);
+  border: 1.5px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-alta);
+  flex-wrap: wrap;
+}
+
+.resumen {
+  display: flex;
+  gap: var(--espacio-6);
+  flex-wrap: wrap;
+}
+
+.dato {
+  display: flex;
+  flex-direction: column;
+}
+
+.numero {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primario);
+  line-height: 1;
+}
+
+.etiqueta {
+  font-size: 0.78rem;
+  color: var(--color-texto-suave);
+  margin-top: 4px;
+}
