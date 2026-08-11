@@ -1,0 +1,115 @@
+.volver {
+  display: inline-block;
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--espacio-3);
+}
+
+.volver:hover {
+  color: var(--color-primario);
+}
+
+.filaEstado {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  flex-wrap: wrap;
+  margin-top: var(--espacio-4);
+}
+
+.etiquetaEstado {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.opcionesEstado {
+  display: flex;
+  gap: var(--espacio-2);
+}
+
+.opcionEstado {
+  padding: 7px 16px;
+  border-radius: var(--radio-pill);
+  border: 1.5px solid var(--color-borde);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.opcionEstado:hover:not(:disabled) {
+  border-color: var(--color-primario);
+}
+
+.opcionEstadoActiva {
+  background: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+}
+
+.grillaIndicadores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-4);
+  margin-top: var(--espacio-5);
+}
+
+.indicador {
+  padding: var(--espacio-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-1);
+}
+
+.numero {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primario);
+  line-height: 1;
+}
+
+.etiqueta {
+  font-size: 0.82rem;
+  color: var(--color-texto-suave);
+  font-weight: 600;
+}
+
+.tarjetaProgreso {
+  padding: var(--espacio-5);
+  margin-top: var(--espacio-4);
+}
+
+.vacio {
+  margin-top: var(--espacio-5);
+  padding: var(--espacio-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-2);
+}
+
+.vacio p {
+  color: var(--color-texto-suave);
+  max-width: 420px;
+  margin-bottom: var(--espacio-2);
+}
+
+.accesos {
+  display: flex;
+  gap: var(--espacio-3);
+  flex-wrap: wrap;
+  margin-top: var(--espacio-5);
+}
+
+@media (max-width: 640px) {
+  .grillaIndicadores {
+    grid-template-columns: 1fr 1fr;
+  }
+}

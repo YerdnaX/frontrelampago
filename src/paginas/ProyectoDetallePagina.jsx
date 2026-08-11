@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import * as proyectosServicio from '../servicios/proyectosServicio';
 import * as equiposServicio from '../servicios/equiposServicio';
 import * as historiasServicio from '../servicios/historiasServicio';
+import * as sprintsServicio from '../servicios/sprintsServicio';
 import { extraerMensajeError } from '../servicios/clienteApi';
 import IndicadorCarga from '../componentes/IndicadorCarga';
 import TarjetaMiembroEquipo from '../componentes/TarjetaMiembroEquipo';
@@ -14,6 +15,7 @@ function ProyectoDetallePagina() {
   const [proyecto, setProyecto] = useState(null);
   const [equipo, setEquipo] = useState(null);
   const [totalHistorias, setTotalHistorias] = useState(0);
+  const [sprints, setSprints] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [mensajeError, setMensajeError] = useState('');
   const [editandoGoal, setEditandoGoal] = useState(false);
@@ -22,25 +24,29 @@ function ProyectoDetallePagina() {
     cargarDatos();
   }, [id]);
 
-  // Carga el proyecto, su equipo y el total de historias del backlog.
+  // Carga el proyecto, su equipo, el backlog y los Sprints existentes.
   async function cargarDatos() {
     setCargando(true);
     setMensajeError('');
     try {
       const datosProyecto = await proyectosServicio.obtenerProyectoPorId(id);
-      const [datosEquipo, historias] = await Promise.all([
+      const [datosEquipo, historias, listaSprints] = await Promise.all([
         equiposServicio.obtenerEquipoPorId(datosProyecto.IdEquipo),
         historiasServicio.obtenerHistoriasDelProyecto(id),
+        sprintsServicio.obtenerSprintsDelProyecto(id),
       ]);
       setProyecto(datosProyecto);
       setEquipo(datosEquipo);
       setTotalHistorias(historias.length);
+      setSprints(listaSprints);
     } catch (error) {
       setMensajeError(extraerMensajeError(error));
     } finally {
       setCargando(false);
     }
   }
+
+  const sprintActivo = sprints.find((sprint) => sprint.Estado === 'Activo') || sprints[0];
 
   if (cargando) {
     return <IndicadorCarga mensaje="Cargando proyecto..." />;
@@ -113,6 +119,21 @@ function ProyectoDetallePagina() {
           <p className={estilos.ayuda}>{totalHistorias === 1 ? 'historia registrada' : 'historias registradas'}</p>
           <Link to={`/proyectos/${id}/backlog`} className="boton boton-primario">
             Abrir backlog
+          </Link>
+        </section>
+
+        <section className={`tarjeta ${estilos.seccion}`}>
+          <h2>Sprints</h2>
+          {sprintActivo ? (
+            <>
+              <p className={estilos.nombreEquipo}>{sprintActivo.Nombre} · {sprintActivo.Estado}</p>
+              <p className={estilos.ayuda}>“{sprintActivo.SprintGoal}”</p>
+            </>
+          ) : (
+            <p className={estilos.ayuda}>Todavía no existen Sprints para este proyecto.</p>
+          )}
+          <Link to={`/proyectos/${id}/sprints`} className="boton boton-primario">
+            {sprints.length === 0 ? 'Planificar primer Sprint' : 'Ver Sprints'}
           </Link>
         </section>
       </div>

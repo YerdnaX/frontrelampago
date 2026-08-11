@@ -1,0 +1,17 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.filaFechas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-3);
+}
+
+@media (max-width: 480px) {
+  .filaFechas {
+    grid-template-columns: 1fr;
+  }
+}

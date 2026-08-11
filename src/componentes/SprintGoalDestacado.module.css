@@ -1,0 +1,71 @@
+.tarjeta {
+  padding: var(--espacio-5);
+  border-radius: var(--radio-lg);
+  background: linear-gradient(135deg, #2c2158, #1a1533);
+  color: #fff;
+  box-shadow: var(--sombra-media);
+}
+
+.encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  flex-wrap: wrap;
+}
+
+.etiquetaSprint {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a89fd6;
+}
+
+.tituloGoal {
+  font-size: 1rem;
+  color: #cfc9ec;
+  margin-top: 4px;
+}
+
+.metaDerecha {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.metaDerecha .boton-fantasma {
+  color: #cfc9ec;
+}
+
+.dias {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radio-pill);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.textoGoal {
+  margin-top: var(--espacio-3);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.5;
+  max-width: 760px;
+}
+
+.formulario {
+  margin-top: var(--espacio-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.formulario textarea {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}

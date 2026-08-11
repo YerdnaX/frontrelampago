@@ -1,0 +1,59 @@
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  padding: var(--espacio-5);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida);
+}
+
+.tarjeta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-2);
+}
+
+.encabezado h3 {
+  font-size: 1.05rem;
+}
+
+.goal {
+  color: var(--color-texto-suave);
+  font-size: 0.88rem;
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.meta {
+  display: flex;
+  gap: var(--espacio-3);
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--color-texto-tenue);
+}
+
+.planificado {
+  background: var(--color-info-suave);
+  color: var(--color-info);
+}
+
+.activo {
+  background: var(--color-exito-suave);
+  color: var(--color-exito);
+}
+
+.finalizado {
+  background: var(--color-superficie-alterna);
+  color: var(--color-texto-suave);
+}
