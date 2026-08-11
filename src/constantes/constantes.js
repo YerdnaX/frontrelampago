@@ -7,6 +7,15 @@ export const STORY_POINTS = [1, 2, 3, 5, 8, 13];
 // Roles Scrum permitidos dentro de un equipo.
 export const ROLES_SCRUM = ['Product Owner', 'Scrum Master', 'Developer'];
 
+// Estados posibles de una historia dentro del tablero del Sprint, en orden.
+export const ESTADOS_HISTORIA = ['Pendiente', 'En progreso', 'En revisión', 'Pruebas', 'Terminado'];
+
+// Estados posibles de un Sprint.
+export const ESTADOS_SPRINT = ['Planificado', 'Activo', 'Finalizado'];
+
+// Estados posibles de un impedimento, en orden de seguimiento.
+export const ESTADOS_IMPEDIMENTO = ['Abierto', 'Gestionándose', 'Resuelto'];
+
 // Clave utilizada para persistir la sesion en el almacenamiento local.
 export const CLAVE_ALMACENAMIENTO_TOKEN = 'relampago_token';
 export const CLAVE_ALMACENAMIENTO_USUARIO = 'relampago_usuario';
