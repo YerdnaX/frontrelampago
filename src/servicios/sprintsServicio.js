@@ -47,3 +47,21 @@ export async function actualizarEstadoHistoria(idHistoria, estado) {
   const respuesta = await clienteApi.put(`/historias/${idHistoria}/estado`, { estado });
   return respuesta.data.datos;
 }
+
+// Obtiene el indicador real de cumplimiento del Sprint.
+export async function obtenerCumplimientoSprint(idSprint) {
+  const respuesta = await clienteApi.get(`/sprints/${idSprint}/cumplimiento`);
+  return respuesta.data.datos;
+}
+
+// Obtiene el resumen previo al cierre formal del Sprint.
+export async function obtenerResumenCierreSprint(idSprint) {
+  const respuesta = await clienteApi.get(`/sprints/${idSprint}/cierre`);
+  return respuesta.data.datos;
+}
+
+// Cierra formalmente el Sprint.
+export async function cerrarSprint(idSprint) {
+  const respuesta = await clienteApi.post(`/sprints/${idSprint}/cerrar`);
+  return respuesta.data.datos;
+}

@@ -17,4 +17,9 @@ export function extraerMensajeError(error) {
   return error?.response?.data?.mensaje || 'No fue posible completar la operacion. Intenta nuevamente.';
 }
 
+// Extrae los detalles estructurados enviados por la API.
+export function extraerDetallesError(error) {
+  return error?.response?.data || null;
+}
+
 export default clienteApi;

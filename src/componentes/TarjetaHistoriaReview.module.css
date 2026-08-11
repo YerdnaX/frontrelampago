@@ -1,0 +1,42 @@
+.tarjeta {
+  padding: var(--espacio-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.encabezado h3 {
+  margin-top: var(--espacio-1);
+}
+
+.estadoTecnico {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.resultados {
+  display: flex;
+  gap: var(--espacio-2);
+  flex-wrap: wrap;
+}
+
+.opcion {
+  padding: 10px 14px;
+  border-radius: var(--radio-pill);
+  border: 1px solid var(--color-borde);
+  background: var(--color-superficie);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.opcionActiva {
+  background: var(--color-primario-suave);
+  border-color: var(--color-primario);
+  color: var(--color-primario-fuerte);
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import * as sprintsServicio from '../servicios/sprintsServicio';
-import { extraerMensajeError } from '../servicios/clienteApi';
+import { extraerDetallesError, extraerMensajeError } from '../servicios/clienteApi';
 import IndicadorCarga from '../componentes/IndicadorCarga';
 import EstadoVacio from '../componentes/EstadoVacio';
 import ColumnaTablero from '../componentes/ColumnaTablero';
@@ -18,6 +18,7 @@ function TableroPagina() {
   const [historias, setHistorias] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [mensajeError, setMensajeError] = useState('');
+  const [criteriosPendientes, setCriteriosPendientes] = useState([]);
   const [idArrastrando, setIdArrastrando] = useState(null);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ function TableroPagina() {
   async function cargarDatos() {
     setCargando(true);
     setMensajeError('');
+    setCriteriosPendientes([]);
     try {
       const [datosSprint, sprintBacklog] = await Promise.all([
         sprintsServicio.obtenerSprintPorId(idSprint),
@@ -49,12 +51,15 @@ function TableroPagina() {
 
     setHistorias((anterior) => anterior.map((item) => (item.IdHistoria === historia.IdHistoria ? { ...item, Estado: nuevoEstado } : item)));
     setMensajeError('');
+    setCriteriosPendientes([]);
 
     try {
       await sprintsServicio.actualizarEstadoHistoria(historia.IdHistoria, nuevoEstado);
     } catch (error) {
+      const detalle = extraerDetallesError(error);
       setHistorias((anterior) => anterior.map((item) => (item.IdHistoria === historia.IdHistoria ? { ...item, Estado: estadoAnterior } : item)));
-      setMensajeError('No fue posible actualizar el estado. La historia volvió a su estado anterior.');
+      setMensajeError(extraerMensajeError(error));
+      setCriteriosPendientes(detalle?.datos?.criteriosPendientes || []);
     }
   }
 
@@ -80,7 +85,16 @@ function TableroPagina() {
         </div>
       </div>
 
-      {mensajeError && <p className={`campo-error ${estilos.error}`}>{mensajeError}</p>}
+      {mensajeError && (
+        <div className={estilos.bloqueError}>
+          <p className={`campo-error ${estilos.error}`}>{mensajeError}</p>
+          {criteriosPendientes.length > 0 && (
+            <ul className={estilos.listaPendientes}>
+              {criteriosPendientes.map((criterio) => <li key={criterio}>{criterio}</li>)}
+            </ul>
+          )}
+        </div>
+      )}
 
       {historias.length === 0 ? (
         <EstadoVacio

@@ -1,0 +1,72 @@
+.volver {
+  display: inline-block;
+  margin-bottom: var(--espacio-3);
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.encabezado {
+  margin-bottom: var(--espacio-5);
+}
+
+.etiqueta {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primario);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.goal {
+  margin-top: var(--espacio-2);
+  color: var(--color-texto-suave);
+}
+
+.disposicion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-5);
+}
+
+.tarjetaHistorias,
+.tarjetaFormulario {
+  padding: var(--espacio-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.listaHistorias {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.historia {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4);
+  border-radius: var(--radio-md);
+  background: var(--color-superficie-alterna);
+}
+
+.historia p {
+  color: var(--color-texto-suave);
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  padding: var(--espacio-4);
+  border-radius: var(--radio-md);
+  background: linear-gradient(135deg, var(--color-acento-suave), #fff);
+}
+
+@media (max-width: 900px) {
+  .disposicion {
+    grid-template-columns: 1fr;
+  }
+}

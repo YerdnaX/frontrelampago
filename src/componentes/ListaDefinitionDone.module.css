@@ -1,0 +1,66 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--espacio-3);
+  align-items: center;
+  padding: var(--espacio-4);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  background: linear-gradient(180deg, #ffffff, #fafaff);
+}
+
+.icono {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-exito-suave);
+  color: var(--color-exito);
+  font-weight: 800;
+}
+
+.descripcion {
+  font-weight: 600;
+}
+
+.acciones,
+.accionesEdicion {
+  display: flex;
+  gap: var(--espacio-2);
+  flex-wrap: wrap;
+}
+
+.edicion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--espacio-3);
+}
+
+@media (max-width: 700px) {
+  .item {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+}

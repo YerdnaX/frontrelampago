@@ -88,7 +88,7 @@ function SprintDetallePagina() {
       <div className={estilos.filaEstado}>
         <span className={estilos.etiquetaEstado}>Estado del Sprint</span>
         <div className={estilos.opcionesEstado} role="radiogroup" aria-label="Estado del Sprint">
-          {Object.values(ESTADOS_SPRINT).map((estado) => (
+          {Object.values(ESTADOS_SPRINT).filter((estado) => estado !== 'Finalizado').map((estado) => (
             <button
               key={estado}
               type="button"
@@ -101,6 +101,7 @@ function SprintDetallePagina() {
               {estado}
             </button>
           ))}
+          {sprint.Estado === 'Finalizado' && <span className={estilos.estadoFinal}>Finalizado</span>}
         </div>
       </div>
 
@@ -135,11 +136,26 @@ function SprintDetallePagina() {
         </div>
       ) : (
         <div className={estilos.accesos}>
+          <Link to={`/proyectos/${idProyecto}/definition-done`} className="boton boton-secundario">
+            ✓ Definition of Done
+          </Link>
           <Link to={`/proyectos/${idProyecto}/sprints/${idSprint}/planificacion`} className="boton boton-secundario">
             📋 Sprint Planning
           </Link>
           <Link to={`/proyectos/${idProyecto}/sprints/${idSprint}/tablero`} className="boton boton-primario">
             🗂 Abrir tablero
+          </Link>
+          <Link to={`/proyectos/${idProyecto}/sprints/${idSprint}/incremento`} className="boton boton-secundario">
+            📦 Incremento
+          </Link>
+          <Link to={`/proyectos/${idProyecto}/sprints/${idSprint}/review`} className="boton boton-secundario">
+            👀 Review
+          </Link>
+          <Link to={`/proyectos/${idProyecto}/sprints/${idSprint}/retrospectiva`} className="boton boton-secundario">
+            🪴 Retrospectiva
+          </Link>
+          <Link to={`/proyectos/${idProyecto}/sprints/${idSprint}/cierre`} className="boton boton-secundario">
+            🏁 Cierre e indicador
           </Link>
           <Link to={`/proyectos/${idProyecto}/sprints/${idSprint}/daily`} className="boton boton-secundario">
             🗣 Daily Scrum

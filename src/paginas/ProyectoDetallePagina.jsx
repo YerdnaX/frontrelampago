@@ -120,6 +120,9 @@ function ProyectoDetallePagina() {
           <Link to={`/proyectos/${id}/backlog`} className="boton boton-primario">
             Abrir backlog
           </Link>
+          <Link to={`/proyectos/${id}/definition-done`} className="boton boton-secundario">
+            Definition of Done
+          </Link>
         </section>
 
         <section className={`tarjeta ${estilos.seccion}`}>

@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import * as historiasServicio from '../servicios/historiasServicio';
 import * as criteriosServicio from '../servicios/criteriosServicio';
+import * as definitionDoneServicio from '../servicios/definitionDoneServicio';
 import { extraerMensajeError } from '../servicios/clienteApi';
 import IndicadorCarga from '../componentes/IndicadorCarga';
 import FormularioHistoria from '../componentes/FormularioHistoria';
 import ListaCriteriosAceptacion from '../componentes/ListaCriteriosAceptacion';
+import ChecklistHistoria from '../componentes/ChecklistHistoria';
 import EtiquetaPrioridad from '../componentes/EtiquetaPrioridad';
 import estilos from './HistoriaDetallePagina.module.css';
 
@@ -13,10 +15,12 @@ import estilos from './HistoriaDetallePagina.module.css';
 function HistoriaDetallePagina() {
   const { id: idProyecto, idHistoria } = useParams();
   const [historia, setHistoria] = useState(null);
+  const [checklist, setChecklist] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [mensajeError, setMensajeError] = useState('');
   const [mensajeExito, setMensajeExito] = useState('');
   const [enviando, setEnviando] = useState(false);
+  const [actualizandoChecklist, setActualizandoChecklist] = useState(false);
 
   useEffect(() => {
     cargarHistoria();
@@ -27,7 +31,12 @@ function HistoriaDetallePagina() {
     setCargando(true);
     setMensajeError('');
     try {
-      setHistoria(await historiasServicio.obtenerHistoriaPorId(idHistoria));
+      const [datosHistoria, datosChecklist] = await Promise.all([
+        historiasServicio.obtenerHistoriaPorId(idHistoria),
+        definitionDoneServicio.obtenerChecklistHistoria(idHistoria),
+      ]);
+      setHistoria(datosHistoria);
+      setChecklist(datosChecklist);
     } catch (error) {
       setMensajeError(extraerMensajeError(error));
     } finally {
@@ -81,6 +90,20 @@ function HistoriaDetallePagina() {
       setHistoria((anterior) => ({ ...anterior, criterios: anterior.criterios.filter((criterio) => criterio.IdCriterio !== idCriterio) }));
     } catch (error) {
       setMensajeError(extraerMensajeError(error));
+    }
+  }
+
+  // Marca o desmarca un criterio Definition of Done de la historia.
+  async function manejarCambiarChecklist(idDefinitionDone, cumplido) {
+    setActualizandoChecklist(true);
+    setMensajeError('');
+    try {
+      const actualizado = await definitionDoneServicio.actualizarChecklistHistoria(idHistoria, idDefinitionDone, cumplido);
+      setChecklist(actualizado);
+    } catch (error) {
+      setMensajeError(extraerMensajeError(error));
+    } finally {
+      setActualizandoChecklist(false);
     }
   }
 
@@ -143,6 +166,25 @@ function HistoriaDetallePagina() {
           />
         </section>
       </div>
+
+      <section className={`tarjeta ${estilos.seccionChecklist}`}>
+        <div className={estilos.encabezadoChecklist}>
+          <div>
+            <h2>Definition of Done</h2>
+            <p>La DoD del proyecto se evalua por historia y se valida en backend antes de pasar a Terminado.</p>
+          </div>
+          <Link to={`/proyectos/${idProyecto}/definition-done`} className="boton boton-secundario boton-pequeno">
+            Editar DoD del proyecto
+          </Link>
+        </div>
+
+        <ChecklistHistoria
+          checklist={checklist}
+          cargando={actualizandoChecklist}
+          alCambiar={manejarCambiarChecklist}
+          accion={<Link to={`/proyectos/${idProyecto}/definition-done`} className="boton boton-primario">Crear primer criterio</Link>}
+        />
+      </section>
     </div>
   );
 }

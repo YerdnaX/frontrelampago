@@ -14,6 +14,11 @@ import PlanificacionSprintPagina from '../paginas/PlanificacionSprintPagina';
 import TableroPagina from '../paginas/TableroPagina';
 import DailyPagina from '../paginas/DailyPagina';
 import ImpedimentosPagina from '../paginas/ImpedimentosPagina';
+import DefinitionDonePagina from '../paginas/DefinitionDonePagina';
+import IncrementoPagina from '../paginas/IncrementoPagina';
+import SprintReviewPagina from '../paginas/SprintReviewPagina';
+import RetrospectivaPagina from '../paginas/RetrospectivaPagina';
+import CierreSprintPagina from '../paginas/CierreSprintPagina';
 
 // Define el mapa de rutas publicas y privadas de la aplicacion.
 function EnrutadorPrincipal() {
@@ -29,12 +34,17 @@ function EnrutadorPrincipal() {
             <Route path="/proyectos/:id" element={<ProyectoDetallePagina />} />
             <Route path="/proyectos/:id/backlog" element={<BacklogPagina />} />
             <Route path="/proyectos/:id/backlog/historias/:idHistoria" element={<HistoriaDetallePagina />} />
+            <Route path="/proyectos/:id/definition-done" element={<DefinitionDonePagina />} />
             <Route path="/proyectos/:id/sprints" element={<SprintsPagina />} />
             <Route path="/proyectos/:id/sprints/:idSprint" element={<SprintDetallePagina />} />
             <Route path="/proyectos/:id/sprints/:idSprint/planificacion" element={<PlanificacionSprintPagina />} />
             <Route path="/proyectos/:id/sprints/:idSprint/tablero" element={<TableroPagina />} />
             <Route path="/proyectos/:id/sprints/:idSprint/daily" element={<DailyPagina />} />
             <Route path="/proyectos/:id/sprints/:idSprint/impedimentos" element={<ImpedimentosPagina />} />
+            <Route path="/proyectos/:id/sprints/:idSprint/incremento" element={<IncrementoPagina />} />
+            <Route path="/proyectos/:id/sprints/:idSprint/review" element={<SprintReviewPagina />} />
+            <Route path="/proyectos/:id/sprints/:idSprint/retrospectiva" element={<RetrospectivaPagina />} />
+            <Route path="/proyectos/:id/sprints/:idSprint/cierre" element={<CierreSprintPagina />} />
             <Route path="/equipos" element={<EquiposPagina />} />
             <Route path="/equipos/:id" element={<EquipoDetallePagina />} />
           </Route>

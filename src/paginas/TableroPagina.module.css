@@ -47,3 +47,14 @@
   flex: 1;
   scroll-snap-type: x proximity;
 }
+
+.bloqueError {
+  margin-bottom: var(--espacio-4);
+}
+
+.listaPendientes {
+  margin: var(--espacio-2) 0 0;
+  padding-left: 18px;
+  color: var(--color-peligro);
+  font-size: 0.84rem;
+}

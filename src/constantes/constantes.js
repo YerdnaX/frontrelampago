@@ -16,6 +16,15 @@ export const ESTADOS_SPRINT = ['Planificado', 'Activo', 'Finalizado'];
 // Estados posibles de un impedimento, en orden de seguimiento.
 export const ESTADOS_IMPEDIMENTO = ['Abierto', 'Gestionándose', 'Resuelto'];
 
+// Resultados posibles de la Sprint Review.
+export const RESULTADOS_REVIEW = ['Aceptada', 'Requiere ajustes'];
+
+// Tipos posibles de elementos de retrospectiva.
+export const TIPOS_RETROSPECTIVA = ['Positivo', 'Mejora'];
+
+// Estados posibles de una accion de mejora.
+export const ESTADOS_ACCION_MEJORA = ['Pendiente', 'En progreso', 'Completada'];
+
 // Clave utilizada para persistir la sesion en el almacenamiento local.
 export const CLAVE_ALMACENAMIENTO_TOKEN = 'relampago_token';
 export const CLAVE_ALMACENAMIENTO_USUARIO = 'relampago_usuario';
