@@ -1,0 +1,47 @@
+.volver {
+  display: inline-block;
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--espacio-3);
+}
+
+.volver:hover {
+  color: var(--color-primario);
+}
+
+.ayuda {
+  color: var(--color-texto-suave);
+  margin-top: var(--espacio-2);
+  margin-bottom: var(--espacio-5);
+}
+
+.formularioNuevo {
+  padding: var(--espacio-4) var(--espacio-5);
+  margin-bottom: var(--espacio-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.filaFormulario {
+  display: flex;
+  gap: var(--espacio-2);
+}
+
+.filaFormulario .campo-entrada {
+  flex: 1;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+@media (max-width: 560px) {
+  .filaFormulario {
+    flex-direction: column;
+  }
+}

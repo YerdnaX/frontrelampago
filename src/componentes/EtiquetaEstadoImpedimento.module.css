@@ -1,0 +1,14 @@
+.abierto {
+  background: var(--color-peligro-suave);
+  color: var(--color-peligro);
+}
+
+.gestionandose {
+  background: var(--color-alerta-suave);
+  color: var(--color-alerta);
+}
+
+.resuelto {
+  background: var(--color-exito-suave);
+  color: var(--color-exito);
+}
